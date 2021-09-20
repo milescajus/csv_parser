@@ -23,17 +23,13 @@ class CSVParser {
 
 				if (escape) { continue; }
 
-				Console.WriteLine(String.Join("",
-							      new ArraySegment<string>(line,
-								      		       mark,
-										       1 + i - mark)));
-
-				/*
 				values.Add(float.Parse(String.Join("",
-								   new ArraySegment<string>(line, mark, i)),
+								   new ArraySegment<string>(line,
+								   			    mark,
+											    1 + i - mark))
+							     .Replace("\"", ""),
 						       NumberStyles.Currency,
 						       new CultureInfo("en-US")));
-				*/
 			}
 		}
 		
