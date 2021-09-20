@@ -17,11 +17,11 @@ class CSVParser {
 			for (int i = 0; i < line.Length; i++) {
 				if (line[i].Contains("\"")) {
 					escape = !escape;
-				} else {
-					mark = i;
 				}
 
-				if (escape) { continue; }
+				if (!escape) {
+					mark = i;
+				}
 
 				Console.WriteLine(String.Join("",
 							      new ArraySegment<string>(line,
