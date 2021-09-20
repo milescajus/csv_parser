@@ -6,6 +6,8 @@ using System.Collections.Generic;
 class CSVParser {
 	static void Main(string[] args) {
 		var values = new List<float>();
+		float sum = 0;
+		float mean = 0;
 
 		foreach (string file in args) {
 			using var reader = new StreamReader(file);
@@ -33,8 +35,15 @@ class CSVParser {
 			}
 		}
 		
-		foreach (float val in values) {
-			Console.WriteLine(val);
+		foreach (float v in values) {
+			sum += v;
+			mean += v;
+			Console.WriteLine(v);
 		}
+
+		mean = mean / values.Count;
+		
+		Console.WriteLine("Sum: " + sum);
+		Console.WriteLine("Mean: " + mean);
 	}
 }
