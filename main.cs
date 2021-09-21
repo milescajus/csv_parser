@@ -17,19 +17,23 @@ class CSVParser {
 			int mark = 0;
 
 			for (int i = 0; i < line.Length; i++) {
+				if (!escape) {
+					mark = i;
+				}
+				
 				if (line[i].Contains("\"")) {
 					escape = !escape;
-				} else {
-					mark = i;
 				}
 
 				if (escape) { continue; }
 
-				values.Add(float.Parse(String.Join("",
-								   new ArraySegment<string>(line,
-								   			    mark,
-											    1 + i - mark))
-							     .Replace("\"", ""),
+				string cell = String.Join("",
+							  new ArraySegment<string>(line,
+								      		   mark,
+										   1 + i - mark))
+						    .Replace("\"", "");
+
+				values.Add(float.Parse(cell, 
 						       NumberStyles.Currency,
 						       new CultureInfo("en-US")));
 			}
