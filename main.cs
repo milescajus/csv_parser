@@ -45,5 +45,10 @@ class CSVParser {
 		
 		Console.WriteLine("Sum: " + sum);
 		Console.WriteLine("Mean: " + mean);
+
+		using var writer = new StreamWriter("results.csv");
+
+		writer.WriteLine("Sum,Average");
+		writer.WriteLine(sum + "," + mean);
 	}
 }
