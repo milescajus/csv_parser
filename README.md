@@ -25,7 +25,7 @@ Takes any valid two-row (header and data) CSV file using commas `,` as the separ
 		<td>Average</td>
 	</tr>
 	<tr>
-		<td>Value</td>
-		<td>Value</td>
+		<td>57434.46</td>
+		<td>19144.82</td>
 	</tr>
 </table>
